@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations Hub | Carla Rodriguez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+    <h2>OPERATIONS HUB</h2>
+    <p>Smart Restaurant Management</p>
+
+    <nav>
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('daily-plans')">Daily Plans</button>
+        <button onclick="showSection('team')">Team Development</button>
+        <button onclick="showSection('walkthroughs')">Walkthroughs</button>
+        <button onclick="showSection('performance')">Performance</button>
+        <button onclick="showSection('training')">Training</button>
+        <button onclick="showSection('communication')">Communication</button>
+    </nav>
+
+    <footer>Designed by Carla Rodriguez</footer>
+</aside>
+
+<main>
+
+<header>
+    <h1>Operations Hub</h1>
+    <p id="current-date"></p>
+</header>
+
+<section id="dashboard" class="section active">
+
+    <h2>Operations Overview</h2>
+    <p>Lead with intention. Build accountability.</p>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Daily Tasks</h3>
+            <strong id="task-count">0</strong>
+        </div>
+
+        <div class="card">
+            <h3>Completed Tasks</h3>
+            <strong id="completed-count">0</strong>
+        </div>
+
+        <div class="card">
+            <h3>Team Members</h3>
+            <strong id="team-count">0</strong>
+        </div>
+
+        <div class="card">
+            <h3>SMART Goals</h3>
+            <strong id="goal-count">0</strong>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Leadership Priorities</h2>
+        <ul>
+            <li>Order Accuracy</li>
+            <li>Guest Experience</li>
+            <li>Team Accountability</li>
+            <li>Operational Excellence</li>
+            <li>FOH & BOH Communication</li>
+        </ul>
+    </div>
+
+</section>
+
+<section id="daily-plans" class="section">
+
+    <h2>Daily Plans</h2>
+
+    <div class="panel">
+        <input id="leader-name" placeholder="Leader name">
+
+        <select id="shift">
+            <option>Morning</option>
+            <option>Midday</option>
+            <option>Evening</option>
+        </select>
+
+        <select id="zone">
+            <option>Front of House</option>
+            <option>Back of House</option>
+            <option>Carryout</option>
+            <option>Bagging</option>
+            <option>Hospitality</option>
+        </select>
+
+        <button onclick="addPlan()">Add Assignment</button>
+
+        <ul id="plan-list"></ul>
+    </div>
+
+</section>
+
+<section id="team" class="section">
+
+    <h2>Team Development</h2>
+
+    <div class="panel">
+        <input id="member-name" placeholder="Team member name">
+
+        <select id="member-level">
+            <option>Top 20</option>
+            <option>Top 60</option>
+            <option>Trainer Development</option>
+            <option>Supervisor Development</option>
+            <option>Needs Coaching</option>
+        </select>
+
+        <textarea id="member-notes" placeholder="Development notes"></textarea>
+
+        <button onclick="addMember()">Add Team Member</button>
+
+        <ul id="member-list"></ul>
+    </div>
+
+</section>
+
+<section id="walkthroughs" class="section">
+
+    <h2>Cleanliness & Walkthroughs</h2>
+
+    <div class="panel">
+        <input id="task-name" placeholder="Task or responsibility">
+
+        <input id="task-owner" placeholder="Assigned to">
+
+        <button onclick="addTask()">Add Task</button>
+
+        <ul id="task-list"></ul>
+    </div>
+
+</section>
+
+<section id="performance" class="section">
+
+    <h2>Performance & SMART Goals</h2>
+
+    <div class="panel">
+
+        <h3>Performance Metrics</h3>
+
+        <label for="cem">CEM Score (%)</label>
+        <input type="number" id="cem" min="0" max="100">
+
+        <label for="accuracy">Order Accuracy (%)</label>
+        <input type="number" id="accuracy" min="0" max="100">
+
+        <label for="service-time">Service Time</label>
+        <input id="service-time" placeholder="Minutes:Seconds">
+
+        <button onclick="saveMetrics()">Save Metrics</button>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>SMART Goals</h3>
+
+        <textarea id="goal-name" placeholder="Enter your SMART goal"></textarea>
+
+        <input id="goal-deadline" type="date">
+
+        <button onclick="addGoal()">Add Goal</button>
+
+        <ul id="goal-list"></ul>
+
+    </div>
+
+</section>
+
+<section id="training" class="section">
+
+    <h2>Training & Accountability</h2>
+
+    <div class="panel">
+
+        <input id="trainee-name" placeholder="Team member name">
+
+        <select id="training-position">
+            <option>Bagging</option>
+            <option>Hospitality</option>
+            <option>Carryout</option>
+            <option>Front Counter</option>
+            <option>Kitchen</option>
+        </select>
+
+        <select id="training-status">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+        </select>
+
+        <input id="training-time" placeholder="Time spent on training">
+
+        <textarea id="training-notes" placeholder="Coaching and feedback"></textarea>
+
+        <button onclick="addTraining()">Save Training</button>
+
+        <ul id="training-list"></ul>
+
+    </div>
+
+</section>
+
+<section id="communication" class="section">
+
+    <h2>FOH & BOH Communication</h2>
+
+    <div class="panel">
+
+        <input id="message-author" placeholder="Your name">
+
+        <select id="department">
+            <option>Front of House</option>
+            <option>Back of House</option>
+            <option>Leadership</option>
+        </select>
+
+        <textarea id="message-text" placeholder="Share an operational update"></textarea>
+
+        <button onclick="addMessage()">Post Update</button>
+
+        <ul id="message-list"></ul>
+
+    </div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
